@@ -7,16 +7,16 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
                         <div class="card-header">
-                            Create Article
+                            Create Post
                         </div>
                         <div class="card-body">
-                            @if (Session::has('article-created'))
+                            @if (Session::has('post-created'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>{{Session::get('article-created')}}</strong>
+                                <strong>{{Session::get('post-created')}}</strong>
                                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                             </div>
                             @endif
-                            <form method="POST" action="{{route('store.article')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="title">Title</label>

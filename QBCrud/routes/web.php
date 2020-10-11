@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('posts', PostController::class)->except(['destroy','update']);
+Route::get('/posts/{post}/delete', [PostController::class,'destroy'])->name('deletepost');
+Route::post('/posts/{post}', [PostController::class,'update'])->name('posts.update');
